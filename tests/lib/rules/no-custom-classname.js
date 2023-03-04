@@ -411,6 +411,24 @@ ruleTester.run("no-custom-classname", rule, {
       ],
     },
     {
+      code: `
+      <div
+        className={clsx(
+          {
+              "skip-property": "custom-1",
+              skip: "custom-2"
+          }
+        )}
+      />
+      `,
+      options: [
+        {
+          callees: ["clsx"],
+          skipProperties: ["skip", "skip-property"],
+        },
+      ],
+    },
+    {
       code: `<div className="flex skin-summer custom-2">whitelisted</div>`,
       options: [
         {
