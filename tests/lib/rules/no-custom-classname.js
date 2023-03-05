@@ -424,7 +424,7 @@ ruleTester.run("no-custom-classname", rule, {
       options: [
         {
           callees: ["clsx"],
-          skipProperties: ["skip", "skip-property"],
+          skipProperties: ["^skip$", "^skip-property$"],
         },
       ],
     },
